@@ -4,22 +4,19 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Catalina Rojas Ugarte — Senior Software Engineer</title>
-<meta name="description" content="Catalina Rojas Ugarte, Senior Software Engineer. Tecnología cívica, datos, ML, AI. Berlin."/>
+<meta name="description" content="Catalina Rojas Ugarte, Senior Software Engineer. Civic tech, data pipelines, ML, AI. Berlin."/>
 <meta name="author" content="Catalina Rojas Ugarte"/>
-<meta name="keywords" content="Catalina Rojas Ugarte, Catalina Rojas, Senior Software Engineer, Python, Ruby on Rails, Machine Learning, Docker, GCP, AWS, InfAI Leipzig, Le Wagon, WeLevelUp, Femicide Watch, Cine y Mujeres, Berlin"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 [data-theme="dark"]{
   --bg:#0d0d0d;
-  --bg2:#141414;
   --surface:#1c1c1c;
-  --line:#333333;
+  --line:#333;
   --accent:#ff8040;
-  --accent-dim:#cc5522;
   --accent-muted:#4a2010;
   --text-hi:#ffffff;
   --text:#e8e0d8;
@@ -30,16 +27,14 @@
 }
 [data-theme="light"]{
   --bg:#ffffff;
-  --bg2:#f8f4f0;
-  --surface:#f0e8e0;
+  --surface:#f5f0eb;
   --line:#d8ccc0;
   --accent:#d45a00;
-  --accent-dim:#a04000;
   --accent-muted:#7a3000;
   --text-hi:#000000;
   --text:#1a1410;
   --text-mid:#3a2e28;
-  --text-low:#5a4e48;
+  --text-low:#6a5e54;
   --btn-bg:#000000;
   --btn-text:#ffffff;
 }
@@ -48,108 +43,86 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;line-height:1.5;-webkit-font-smoothing:antialiased;transition:background 0.3s,color 0.3s}
 a{text-decoration:none;color:inherit}
 
-/* ── CONTROLS ── */
 .controls{position:fixed;top:1.2rem;right:1.5rem;display:flex;gap:0.5rem;z-index:100}
 .ctrl-btn{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--btn-bg);color:var(--btn-text);border:1px solid var(--line);padding:0.5rem 1rem;cursor:pointer;transition:all 0.2s}
-.ctrl-btn:hover{background:var(--accent);color:var(--bg)}
+.ctrl-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-/* ── LAYOUT ── */
 .wrap{max-width:1080px;margin:0 auto;padding:0 2.5rem}
 
-/* ── HEADER ── */
 header{border-bottom:1px solid var(--line);padding:3.5rem 0 2rem}
 .header-grid{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
 .header-label{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem}
-.name{font-family:'IBM Plex Sans',sans-serif;font-size:clamp(2.5rem,5.5vw,4.5rem);font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--text-hi)}
-.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.35rem}
-.header-right a,.header-right span{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--text-mid);letter-spacing:0.04em;transition:color 0.15s}
+.name{font-size:clamp(2.5rem,5.5vw,4.5rem);font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--text-hi)}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem}
+.header-right a,.header-right span{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--text-mid);transition:color 0.15s}
 .header-right a:hover{color:var(--accent)}
 
-/* ── SECTION ── */
 .section{padding:2.8rem 0;border-bottom:1px solid var(--line)}
 .section-row{display:grid;grid-template-columns:160px 1fr;gap:3rem;align-items:start}
 .section-key{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);padding-top:0.15rem;position:sticky;top:2rem}
 
-/* ── ABOUT ── */
 .about-text{font-size:1.05rem;line-height:1.85;color:var(--text);max-width:640px}
 .about-text strong{color:var(--text-hi);font-weight:600}
-.about-alt{margin-top:1.2rem;font-size:0.97rem;line-height:1.8;color:var(--text-mid);max-width:620px;border-left:2px solid var(--line);padding-left:1rem}
 
-/* ── TIMELINE (experience + education) ── */
 .timeline{display:flex;flex-direction:column}
 .tl-item{padding:1.5rem 0;border-bottom:1px solid var(--line)}
 .tl-item:last-child{border-bottom:none}
 .tl-header{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline;margin-bottom:0.2rem}
 .tl-title{font-size:1.05rem;font-weight:600;color:var(--text-hi)}
-.tl-date{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--accent);white-space:nowrap;font-weight:600}
-.tl-org{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-mid);margin-bottom:0.5rem}
-.tl-bullets{padding-left:0;list-style:none;margin-top:0.4rem}
-.tl-bullets li{font-size:0.92rem;color:var(--text);line-height:1.75;padding:0.15rem 0;padding-left:1rem;position:relative}
+.tl-date{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--accent);font-weight:600;white-space:nowrap}
+.tl-org{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-mid);margin-bottom:0.6rem}
+.tl-bullets{list-style:none;margin-top:0.4rem}
+.tl-bullets li{font-size:0.92rem;color:var(--text);line-height:1.75;padding:0.15rem 0 0.15rem 1.2rem;position:relative}
 .tl-bullets li::before{content:'—';position:absolute;left:0;color:var(--accent)}
-.tl-desc{font-size:0.92rem;color:var(--text);line-height:1.75;max-width:600px}
-.tl-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem}
+.tl-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.7rem}
 .tag{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-low);border:1px solid var(--line);padding:0.22rem 0.5rem}
 .tag.hot{color:var(--accent);border-color:var(--accent-muted)}
 
-/* ── PROJECT TABLE ── */
 .project-table{width:100%;border-collapse:collapse}
 .project-table tr{border-bottom:1px solid var(--line);transition:background 0.15s}
 .project-table tr:hover{background:var(--surface)}
-.project-table tr:hover .pt-link a{color:var(--accent)}
-.pt-idx{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--text-low);padding:1.4rem 1rem 1.4rem 0;vertical-align:top;white-space:nowrap;width:2rem}
+.pt-idx{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--text-low);padding:1.4rem 1rem 1.4rem 0;vertical-align:top;width:2rem}
 .pt-main{padding:1.4rem 2rem 1.4rem 0;vertical-align:top}
 .pt-name{font-size:1.05rem;font-weight:600;color:var(--text-hi);margin-bottom:0.2rem}
+.pt-name a{color:inherit;border-bottom:1px solid var(--accent)}
+.pt-name a:hover{color:var(--accent)}
 .pt-role{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem}
 .pt-desc{font-size:0.92rem;color:var(--text);line-height:1.7;max-width:460px}
-.pt-tags{padding:1.4rem 2rem 1.4rem 0;vertical-align:top;width:200px}
+.pt-tags{padding:1.4rem 1rem 1.4rem 0;vertical-align:top;width:200px}
 .tag-list{display:flex;flex-wrap:wrap;gap:0.3rem;justify-content:flex-end}
-.pt-link{padding:1.4rem 0;vertical-align:middle;width:1.5rem}
-.pt-link a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--text-low);transition:color 0.15s;writing-mode:vertical-rl;white-space:nowrap;letter-spacing:0.05em}
 
-/* ── SKILLS ── */
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 4rem}
 .skill-group-title{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--line)}
-.skill-row{display:flex;align-items:center;gap:1rem;margin-bottom:0.65rem}
-.skill-name{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--text);min-width:130px}
+.skill-row{display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem}
+.skill-name{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--text);min-width:140px}
 .skill-bar{flex:1;height:2px;background:var(--line);position:relative}
 .skill-fill{height:100%;background:var(--accent);width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
-.skill-pct{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--text-mid);min-width:3.5rem;text-align:right}
 
-/* ── FOOTER ── */
-footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
-.footer-id{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text-low);letter-spacing:0.06em}
+footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-id{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text-low)}
 .footer-id strong{color:var(--accent)}
 .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
-.footer-links a{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--text-low);text-transform:uppercase;transition:color 0.15s}
+.footer-links a{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--text-low);text-transform:uppercase;transition:color 0.15s}
 .footer-links a:hover{color:var(--accent)}
 
-/* ── LANG ── */
 [data-lang="es"] .en{display:none}
 [data-lang="en"] .es{display:none}
 
-/* ── PRINT ── */
 @media print{
   body{background:#fff!important;color:#111!important}
   .controls{display:none!important}
-  .section,.tl-item,.project-table tr{break-inside:avoid}
-  .name,.tl-title,.pt-name{color:#0d0d0d!important}
-  .section-key,.header-label,.tl-date,.pt-role,.tl-org,.skill-group-title,
-  .metric-val,.tag.hot,.footer-id strong,.tl-bullets li::before{color:#c85a10!important}
+  .name,.tl-title,.pt-name{color:#000!important}
+  .section-key,.tl-date,.pt-role,.tl-org,.tag.hot{color:#c85a10!important}
   .skill-fill{background:#c85a10!important}
-  .skill-bar{background:#ddd!important}
-  header,.section,footer{border-color:#ddd!important}
-  .tl-item{border-color:#ddd!important}
-  .skill-name,.about-text,.tl-bullets li,.tl-desc,.pt-desc{color:#1c1410!important}
-  .text-mid,.tl-org,.header-right span,.header-right a{color:#4a3c30!important}
-  .pt-tags,.pt-link{display:table-cell!important}
+  .skill-bar,.section,.tl-item,header,footer{border-color:#ddd!important}
+  .about-text,.tl-bullets li,.pt-desc{color:#1a1410!important}
+  .section,.tl-item{break-inside:avoid}
   @page{margin:1.5cm;size:A4}
 }
-
-/* ── RESPONSIVE ── */
 @media(max-width:860px){
   .section-row{grid-template-columns:1fr}
   .section-key{position:static;margin-bottom:0.5rem}
-  .pt-tags,.pt-link{display:none}
+  .pt-tags{display:none}
   .skills-grid{grid-template-columns:1fr}
   .header-grid{grid-template-columns:1fr}
   .header-right{align-items:flex-start;margin-top:1rem}
@@ -164,25 +137,22 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
 <body>
 
 <div class="controls">
-  <button class="ctrl-btn" onclick="toggleTheme()">
-    <span class="es">fondo</span><span class="en">theme</span>
+  <button class="ctrl-btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'">
+    <span class="es">Fondo</span><span class="en">Theme</span>
   </button>
-  <button class="ctrl-btn" onclick="toggleLang()">EN / ES</button>
+  <button class="ctrl-btn" onclick="var l=document.documentElement.dataset.lang==='es'?'en':'es';document.documentElement.dataset.lang=l;document.documentElement.lang=l">EN / ES</button>
   <button class="ctrl-btn" onclick="window.print()">
-    <span class="es">↓ descargar PDF</span><span class="en">↓ download PDF</span>
+    <span class="es">↓ Descargar PDF</span><span class="en">↓ Download PDF</span>
   </button>
 </div>
 
 <div class="wrap">
 
-<!-- HEADER -->
 <header>
   <div class="header-grid">
     <div>
-      <p class="header-label">
-        <span class="es">Senior Software Engineer · Tecnología Cívica · Datos · ML</span>
-        <span class="en">Senior Software Engineer · Civic Technology · Data · ML</span>
-      </p>
+      <p class="header-label es">Senior Software Engineer · Tecnología Cívica · Datos · ML</p>
+      <p class="header-label en">Senior Software Engineer · Civic Technology · Data · ML</p>
       <h1 class="name">Catalina Rojas Ugarte</h1>
     </div>
     <div class="header-right">
@@ -202,7 +172,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
     <span class="section-key en">Profile</span>
     <div>
       <p class="about-text es">Senior Software Engineer con <strong>más de 5 años de experiencia</strong> construyendo y liderando proyectos de software — desde arquitectura hasta producción. Combino ingeniería de backend, <strong>pipelines de datos y Machine Learning</strong> con una visión de producto clara. He trabajado como desarrolladora, líder técnica y project manager en entornos de investigación aplicada, startups y organizaciones internacionales. Mis proyectos tienen impacto real: sistemas de monitoreo cívico activos en 5 países, plataformas de datos con más de 100 años de historia analizada, e infraestructura técnica completa para organizaciones en el Reino Unido.</p>
-      <p class="about-alt en">Senior Software Engineer with <strong>5+ years of experience</strong> building and leading software projects — from architecture to production. I combine backend engineering, <strong>data pipelines, and Machine Learning</strong> with strong product thinking. I have worked as developer, technical lead, and project manager across applied research environments, startups, and international organisations. My projects have real-world impact: civic monitoring systems active across 5 countries, data platforms analysing 100+ years of history, and full technical ownership for organisations in the UK.</p>
+      <p class="about-text en">Senior Software Engineer with <strong>5+ years of experience</strong> building and leading software projects — from architecture to production. I combine backend engineering, <strong>data pipelines and Machine Learning</strong> with strong product thinking. I have worked as developer, technical lead and project manager across applied research, startups and international organisations. My projects have real-world impact: civic monitoring systems active across 5 countries, data platforms analysing 100+ years of history, and full technical ownership for organisations in the UK.</p>
     </div>
   </div>
 </div>
@@ -218,12 +188,12 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
         <div class="tl-header">
           <span class="tl-title es">Senior Software Engineer — Responsable Técnica</span>
           <span class="tl-title en">Senior Software Engineer — Full Technical Lead</span>
-          <span class="tl-date">2021 — presente · Part-time</span>
+          <span class="tl-date">2021 — present · Part-time</span>
         </div>
-        <p class="tl-org">WeLevelUp · Londres, Reino Unido · Remoto</p>
+        <p class="tl-org">WeLevelUp · London, UK · Remote</p>
         <ul class="tl-bullets">
-          <li class="es">Responsable de toda la infraestructura técnica de la organización feminista Level Up UK</li>
-          <li class="en">Full technical ownership of the feminist organisation Level Up UK's digital infrastructure</li>
+          <li class="es">Responsable técnica completa de la infraestructura digital de Level Up UK</li>
+          <li class="en">Full technical ownership of Level Up UK's digital infrastructure</li>
           <li class="es">Consultoría en arquitectura de soluciones cloud y web</li>
           <li class="en">Consultant services for assessing tech stack and cloud architecture</li>
           <li class="es">Construcción del sistema Femicide Media Watch: pipeline NLP, monitoreo diario de prensa en 5 países, API pública con 870+ casos documentados</li>
@@ -237,19 +207,19 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
 
       <div class="tl-item">
         <div class="tl-header">
-          <span class="tl-title es">Senior Software Engineer — Investigación</span>
-          <span class="tl-title en">Senior Software Engineer — Research</span>
-          <span class="tl-date">2020 — Aug 2024</span>
+          <span class="tl-title es">Senior Software Engineer — Project Manager</span>
+          <span class="tl-title en">Senior Software Engineer — Project Manager</span>
+          <span class="tl-date">2020 — Aug 2025</span>
         </div>
-        <p class="tl-org">InfAI — Institut für Angewandte Informatik · Leipzig, Alemania</p>
+        <p class="tl-org">InfAI — Institut für Angewandte Informatik · Leipzig, Germany</p>
         <ul class="tl-bullets">
-          <li class="es">Project manager y desarrolladora en múltiples proyectos simultáneos: código, revisión, arquitectura y testing</li>
-          <li class="en">Project manager and developer across multiple simultaneous projects: code, review, architecture and testing</li>
+          <li class="es">Project manager y desarrolladora en múltiples proyectos simultáneos: código, revisión de código, arquitectura y testing</li>
+          <li class="en">Project manager and developer across multiple simultaneous projects: code, code review, architecture and testing</li>
           <li class="es">Jobs4Students: plataforma de matching empleadores–estudiantes con algoritmo desarrollado a medida</li>
           <li class="en">Jobs4Students: employer–student matching platform with a custom-built matching algorithm</li>
           <li class="es">Plataforma de educación en IA financiada por el Estado alemán, entre otros proyectos de investigación aplicada</li>
           <li class="en">State-funded AI education platform, among other applied research and development projects</li>
-          <li class="es">Trabajo tanto en equipo como de forma autónoma en proyectos de diversa escala y tecnología</li>
+          <li class="es">Trabajo autónomo y en equipo en proyectos de diversa escala y tecnología</li>
           <li class="en">Worked both autonomously and in teams across projects of varied scale and technology</li>
         </ul>
         <div class="tl-tags">
@@ -264,12 +234,12 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
           <span class="tl-title en">Founder and Software Engineer</span>
           <span class="tl-date">2017 — 2020</span>
         </div>
-        <p class="tl-org">Miienvio · Berlín, Alemania</p>
+        <p class="tl-org">Miienvio · Berlin, Germany</p>
         <ul class="tl-bullets">
           <li class="es">Desarrollo de aplicación web para transferencias internacionales de dinero</li>
           <li class="en">Developed a web application for international money transfers</li>
-          <li class="es">Gestión de relaciones con clientes y dirección técnica del producto</li>
-          <li class="en">Client relationship management and technical product leadership</li>
+          <li class="es">Dirección técnica del producto y gestión de relaciones con clientes</li>
+          <li class="en">Technical product leadership and client relationship management</li>
         </ul>
         <div class="tl-tags">
           <span class="tag hot">Ruby on Rails</span><span class="tag hot">React</span>
@@ -291,30 +261,12 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
         <tbody>
 
           <tr>
-            <td class="pt-idx">02</td>
-            <td class="pt-main">
-              <div class="pt-name"><a href="https://welevelup.org" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--accent)">Level Up — welevelup.org ↗</a></div>
-              <div class="pt-role es">Responsable técnica · 2021–presente</div>
-              <div class="pt-role en">Full technical ownership · 2021–present</div>
-              <div class="pt-desc es">Infraestructura técnica completa de organización feminista del Reino Unido. Sitio web, herramientas de campaña digital y sistema Femicide Watch.</div>
-              <div class="pt-desc en">Full technical infrastructure for a UK feminist organisation. Website, digital campaign tools, and the Femicide Watch system.</div>
-            </td>
-            <td class="pt-tags">
-              <div class="tag-list">
-                <span class="tag hot">Python</span><span class="tag hot">NLP</span>
-                <span class="tag">Django</span><span class="tag">Docker</span><span class="tag">WordPress</span><span class="tag">GCP</span>
-              </div>
-            </td>
-            <td class="pt-link"><a href="https://welevelup.org" target="_blank" rel="noopener">welevelup.org ↗</a></td>
-          </tr>
-
-          <tr>
             <td class="pt-idx">01</td>
             <td class="pt-main">
-              <div class="pt-name"><a href="https://femicide-watch.up.railway.app/" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--accent)">Femicide Media Watch ↗</a></div>
+              <div class="pt-name"><a href="https://femicide-watch.up.railway.app/" target="_blank" rel="noopener">Femicide Media Watch ↗</a></div>
               <div class="pt-role es">Modelo NLP · Pipeline de datos · API pública · 2022</div>
               <div class="pt-role en">NLP model · Data pipeline · Public API · 2022</div>
-              <div class="pt-desc es">Modelo de NLP que predice si un artículo está relacionado con un femicidio. Deployado como aplicación web que interactúa con la API pública de The Guardian. +870 casos documentados en 5 países.</div>
+              <div class="pt-desc es">Modelo NLP que predice si un artículo está relacionado con un femicidio. Deployado como app que interactúa con la API de The Guardian. 870+ casos documentados en 5 países.</div>
               <div class="pt-desc en">NLP model predicting if an article is related to femicide. Deployed as a web app interacting with The Guardian's public API. 870+ cases documented across 5 countries.</div>
             </td>
             <td class="pt-tags">
@@ -323,16 +275,32 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
                 <span class="tag">Docker</span><span class="tag">Google Cloud</span><span class="tag">Railway</span>
               </div>
             </td>
-            <td class="pt-link"><a href="https://femicide-watch.up.railway.app/" target="_blank" rel="noopener">femicide-watch ↗</a></td>
+          </tr>
+
+          <tr>
+            <td class="pt-idx">02</td>
+            <td class="pt-main">
+              <div class="pt-name"><a href="https://welevelup.org" target="_blank" rel="noopener">Level Up — welevelup.org ↗</a></div>
+              <div class="pt-role es">Responsable técnica · 2021 — presente</div>
+              <div class="pt-role en">Full technical ownership · 2021 — present</div>
+              <div class="pt-desc es">Infraestructura técnica completa de organización feminista del Reino Unido. Sitio web, herramientas de campaña digital, 29k+ firmantes.</div>
+              <div class="pt-desc en">Full technical infrastructure for a UK feminist organisation. Website, digital campaign tools, 29k+ petition signatories.</div>
+            </td>
+            <td class="pt-tags">
+              <div class="tag-list">
+                <span class="tag hot">Python</span><span class="tag hot">Django</span>
+                <span class="tag">Docker</span><span class="tag">WordPress</span><span class="tag">GCP</span>
+              </div>
+            </td>
           </tr>
 
           <tr>
             <td class="pt-idx">03</td>
             <td class="pt-main">
-              <div class="pt-name"><a href="https://cineymujeres-production.up.railway.app/" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--accent)">Cine y Mujeres ↗</a></div>
+              <div class="pt-name"><a href="https://cineymujeres-production.up.railway.app/" target="_blank" rel="noopener">Cine y Mujeres ↗</a></div>
               <div class="pt-role es">Datos · Visualización · Investigación académica</div>
               <div class="pt-role en">Data · Visualisation · Academic research</div>
-              <div class="pt-desc es">Análisis de la participación femenina en el cine chileno en 15 roles industriales. Dataset académico 2005–2015 extendido con datos diarios de IMDb. +100 años de historia cinematográfica.</div>
+              <div class="pt-desc es">Análisis de la participación femenina en el cine chileno en 15 roles. Dataset académico 2005–2015 extendido con datos diarios de IMDb. +100 años de historia.</div>
               <div class="pt-desc en">Analysis of female participation in Chilean cinema across 15 industry roles. Academic dataset 2005–2015 extended with daily IMDb data. 100+ years of film history.</div>
             </td>
             <td class="pt-tags">
@@ -341,17 +309,16 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
                 <span class="tag">PostgreSQL</span><span class="tag">Railway</span>
               </div>
             </td>
-            <td class="pt-link"><a href="https://cineymujeres-production.up.railway.app/" target="_blank" rel="noopener">cineymujeres ↗</a></td>
           </tr>
 
           <tr>
             <td class="pt-idx">04</td>
             <td class="pt-main">
-              <div class="pt-name"><a href="#" style="color:inherit;border-bottom:1px solid var(--accent)">Jobs4Students</a></div>
-              <div class="pt-role es">Diseño y desarrollo · 2021 · Alemania</div>
-              <div class="pt-role en">Design & development · 2021 · Germany</div>
-              <div class="pt-desc es">Aplicación web para matching entre empleadores y estudiantes basada en un algoritmo de coincidencia desarrollado a medida.</div>
-              <div class="pt-desc en">Web application for matching employers and students based on a custom-developed matching algorithm.</div>
+              <div class="pt-name">Jobs4Students</div>
+              <div class="pt-role es">Diseño y desarrollo · 2021 · InfAI Leipzig</div>
+              <div class="pt-role en">Design & development · 2021 · InfAI Leipzig</div>
+              <div class="pt-desc es">Aplicación web para matching entre empleadores y estudiantes, con algoritmo de coincidencia desarrollado a medida.</div>
+              <div class="pt-desc en">Web application for matching employers and students based on a custom-built matching algorithm.</div>
             </td>
             <td class="pt-tags">
               <div class="tag-list">
@@ -359,17 +326,16 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
                 <span class="tag">Vue</span><span class="tag">Python</span><span class="tag">Docker</span><span class="tag">React</span>
               </div>
             </td>
-            <td class="pt-link"><a href="#" aria-label="Jobs4Students">—</a></td>
           </tr>
 
           <tr>
             <td class="pt-idx">05</td>
             <td class="pt-main">
-              <div class="pt-name"><a href="https://wolfesarq.netlify.app/" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--accent)">Wolfes Arquitectas ↗</a></div>
+              <div class="pt-name"><a href="https://wolfesarq.netlify.app/" target="_blank" rel="noopener">Wolfes Arquitectas ↗</a></div>
               <div class="pt-role es">Diseño y desarrollo completo</div>
               <div class="pt-role en">Full design & development</div>
-              <div class="pt-desc es">Sitio web de portafolio para estudio de arquitectura liderado por mujeres en Chile.</div>
-              <div class="pt-desc en">Portfolio website for a women-led architecture studio in Chile.</div>
+              <div class="pt-desc es">Sitio web de portafolio para estudio de arquitectura liderado por mujeres en Chile. 50+ proyectos.</div>
+              <div class="pt-desc en">Portfolio website for a women-led architecture studio in Chile. 50+ projects.</div>
             </td>
             <td class="pt-tags">
               <div class="tag-list">
@@ -377,7 +343,6 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
                 <span class="tag">JavaScript</span><span class="tag">CSS</span><span class="tag">Netlify</span>
               </div>
             </td>
-            <td class="pt-link"><a href="https://wolfesarq.netlify.app/" target="_blank" rel="noopener">wolfesarq ↗</a></td>
           </tr>
 
         </tbody>
@@ -395,46 +360,46 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
       <div>
         <p class="skill-group-title es">Lenguajes & Frameworks</p>
         <p class="skill-group-title en">Languages & Frameworks</p>
-        <div class="skill-row"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div><span class="skill-pct">92%</span></div>
-        <div class="skill-row"><span class="skill-name">Ruby / Rails</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct">85%</span></div>
-        <div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div><span class="skill-pct">80%</span></div>
-        <div class="skill-row"><span class="skill-name">Vue / React</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div><span class="skill-pct">75%</span></div>
-        <div class="skill-row"><span class="skill-name">HTML / CSS</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct">85%</span></div>
-        <div class="skill-row"><span class="skill-name">SQL / PostgreSQL</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div><span class="skill-pct">82%</span></div>
+        <div class="skill-row"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Ruby / Rails</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+        <div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Vue / React</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+        <div class="skill-row"><span class="skill-name">HTML / CSS</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+        <div class="skill-row"><span class="skill-name">SQL / PostgreSQL</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
       </div>
 
       <div>
         <p class="skill-group-title es">Datos & Machine Learning</p>
         <p class="skill-group-title en">Data & Machine Learning</p>
-        <div class="skill-row"><span class="skill-name">Pandas / NumPy</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
-        <div class="skill-row"><span class="skill-name">Scikit-Learn</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div><span class="skill-pct">82%</span></div>
-        <div class="skill-row"><span class="skill-name">Keras / TensorFlow</span><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div><span class="skill-pct">72%</span></div>
-        <div class="skill-row"><span class="skill-name">NLP</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div><span class="skill-pct">80%</span></div>
-        <div class="skill-row"><span class="skill-name">Data Visualisation</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct">85%</span></div>
-        <div class="skill-row"><span class="skill-name">Web scraping</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-row"><span class="skill-name">Pandas / NumPy</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Scikit-Learn</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Keras / TensorFlow</span><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></div>
+        <div class="skill-row"><span class="skill-name">NLP</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Data Visualisation</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Web Scraping / ETL</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
       </div>
 
       <div>
         <p class="skill-group-title es">Infraestructura & Cloud</p>
         <p class="skill-group-title en">Infrastructure & Cloud</p>
-        <div class="skill-row"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div><span class="skill-pct">82%</span></div>
-        <div class="skill-row"><span class="skill-name">Git / GitHub</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
-        <div class="skill-row"><span class="skill-name">GCP</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div><span class="skill-pct">75%</span></div>
-        <div class="skill-row"><span class="skill-name">AWS</span><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div><span class="skill-pct">65%</span></div>
-        <div class="skill-row"><span class="skill-name">Railway / Netlify</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
-        <div class="skill-row"><span class="skill-name">REST APIs / ETL</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-row"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Git / GitHub</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-row"><span class="skill-name">GCP</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+        <div class="skill-row"><span class="skill-name">AWS</span><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Railway / Netlify</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-row"><span class="skill-name">REST APIs</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
       </div>
 
       <div>
         <p class="skill-group-title es">AI & Idiomas</p>
         <p class="skill-group-title en">AI & Languages</p>
-        <div class="skill-row"><span class="skill-name">Claude / LLMs</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div><span class="skill-pct es">avanzado</span><span class="skill-pct en">advanced</span></div>
-        <div class="skill-row"><span class="skill-name">AI-assisted dev</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct es">avanzado</span><span class="skill-pct en">advanced</span></div>
+        <div class="skill-row"><span class="skill-name">Claude / LLMs</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+        <div class="skill-row"><span class="skill-name">AI-assisted dev</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
         <div style="margin-top:1.4rem">
-          <div class="skill-row"><span class="skill-name">Español</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div><span class="skill-pct es">nativo</span><span class="skill-pct en">native</span></div>
-          <div class="skill-row"><span class="skill-name">English</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div><span class="skill-pct es">profesional</span><span class="skill-pct en">professional</span></div>
-          <div class="skill-row"><span class="skill-name">Deutsch</span><div class="skill-bar"><div class="skill-fill" data-w="55"></div></div><span class="skill-pct es">intermedio</span><span class="skill-pct en">intermediate</span></div>
-          <div class="skill-row"><span class="skill-name">Français</span><div class="skill-bar"><div class="skill-fill" data-w="25"></div></div><span class="skill-pct es">básico</span><span class="skill-pct en">beginner</span></div>
+          <div class="skill-row"><span class="skill-name">Español</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
+          <div class="skill-row"><span class="skill-name">English</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+          <div class="skill-row"><span class="skill-name">Deutsch</span><div class="skill-bar"><div class="skill-fill" data-w="55"></div></div></div>
+          <div class="skill-row"><span class="skill-name">Français</span><div class="skill-bar"><div class="skill-fill" data-w="25"></div></div></div>
         </div>
       </div>
 
@@ -442,9 +407,6 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
   </div>
 </div>
 
-</div>
-
-<!-- FOOTER -->
 <footer>
   <span class="footer-id"><strong>Catalina Rojas Ugarte</strong> · Senior Software Engineer · Berlin, Germany</span>
   <div class="footer-links">
@@ -460,15 +422,6 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
 </div>
 
 <script>
-function toggleTheme(){
-  document.documentElement.dataset.theme =
-    document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-}
-function toggleLang(){
-  const l = document.documentElement.dataset.lang === 'es' ? 'en' : 'es';
-  document.documentElement.dataset.lang = l;
-  document.documentElement.lang = l;
-}
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting){
