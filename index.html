@@ -109,15 +109,67 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
 [data-lang="en"] .es{display:none}
 
 @media print{
-  body{background:#fff!important;color:#111!important}
+  @page{margin:0.4cm 1.2cm;size:A4}
+  body{background:#fff!important;color:#111!important;font-size:8.5pt!important;line-height:1.4!important}
   .controls{display:none!important}
+  .wrap{max-width:100%;padding:0!important}
+
+  /* --- HEADER: big and spacious --- */
+  header{padding:2.5rem 0 1.5rem!important}
   .name,.tl-title,.pt-name{color:#000!important}
+  .name{font-size:30pt!important;margin-bottom:0.4rem!important}
+  .header-label{font-size:7.5pt!important;margin-bottom:0.5rem!important;letter-spacing:0.12em!important}
+  .header-grid{display:grid!important;grid-template-columns:1fr auto!important;gap:1rem!important;align-items:center!important}
+  .header-right{display:grid!important;grid-template-columns:auto auto!important;gap:0.2rem 1.5rem!important;align-items:start!important}
+  .header-right a,.header-right span{font-size:7pt!important}
+
+  /* --- COLORS --- */
   .section-key,.tl-date,.pt-role,.tl-org,.tag.hot{color:#c85a10!important}
   .skill-fill{background:#c85a10!important}
   .skill-bar,.section,.tl-item,header,footer{border-color:#ddd!important}
   .about-text,.tl-bullets li,.pt-desc{color:#1a1410!important}
+
+  /* --- PROFILE: generous --- */
+  .section{padding:0.8rem 0!important}
+  .section-row{grid-template-columns:72px 1fr!important;gap:1rem!important}
+  .section-key{font-size:6.5pt!important;position:static!important}
+  .about-text{font-size:8pt!important;line-height:1.55!important;max-width:100%!important}
+
+  /* --- EXPERIENCE: comfortable --- */
+  .tl-item{padding:0.6rem 0!important}
+  .tl-title{font-size:9.5pt!important}
+  .tl-date{font-size:7pt!important}
+  .tl-org{font-size:6.5pt!important;margin-bottom:0.25rem!important}
+  .tl-bullets li{font-size:7.5pt!important;line-height:1.5!important;padding:0.12rem 0 0.12rem 0.8rem!important}
+  .tl-tags{margin-top:0.3rem!important;gap:0.15rem!important}
+  .tag{font-size:5pt!important;padding:0.08rem 0.25rem!important}
+
+  /* --- PROJECTS: readable --- */
+  .project-table{font-size:7.5pt!important}
+  .pt-idx{font-size:5pt!important;padding:0.2rem 0.3rem 0.2rem 0!important}
+  .pt-main{padding:0.2rem 0.5rem 0.2rem 0!important}
+  .pt-name{font-size:8.5pt!important;margin-bottom:0.05rem!important}
+  .pt-role{font-size:5pt!important;margin-bottom:0.08rem!important}
+  .pt-desc{font-size:6pt!important;line-height:1.2!important;max-width:100%!important}
+  .pt-tags{padding:0.2rem 0.2rem 0.2rem 0!important;width:100px!important}
+  .tag-list{gap:0.08rem!important}
+  .project-table tr{border-bottom:1px solid #eee!important}
+
+  /* --- SKILLS: 5-column, no bars, tight --- */
+  .skills-grid{display:grid!important;grid-template-columns:1fr 1fr 1fr 1fr 0.7fr!important;gap:0.05rem 0.6rem!important}
+  .skill-group-title{font-size:4.5pt!important;margin-bottom:0.05rem!important;padding-bottom:0.03rem!important}
+  .skill-row{margin-bottom:0!important;gap:0!important}
+  .skill-name{font-size:5.5pt!important;min-width:auto!important;line-height:1.3!important}
+  .skill-bar{display:none!important}
+  .skill-row div[style*="margin-top"]{margin-top:0.05rem!important}
+
+  /* --- FOOTER: minimal --- */
+  footer{padding:0.1rem 0!important}
+  .footer-id{font-size:4.5pt!important}
+  .footer-links a{font-size:4.5pt!important}
+  .footer-links{gap:0.4rem!important}
+
   .section,.tl-item{break-inside:avoid}
-  @page{margin:1.5cm;size:A4}
 }
 @media(max-width:860px){
   .section-row{grid-template-columns:1fr}
@@ -390,18 +442,21 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
       </div>
 
       <div>
-        <p class="skill-group-title es">AI / LLM & Idiomas</p>
-        <p class="skill-group-title en">AI / LLM & Languages</p>
+        <p class="skill-group-title es">AI / LLM</p>
+        <p class="skill-group-title en">AI / LLM</p>
         <div class="skill-row"><span class="skill-name">Claude API / LLMs</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
         <div class="skill-row"><span class="skill-name">Prompt Engineering</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
         <div class="skill-row"><span class="skill-name">AI Automation</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
         <div class="skill-row"><span class="skill-name">Autonomous Agents</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
-        <div style="margin-top:1.4rem">
-          <div class="skill-row"><span class="skill-name">Español</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
-          <div class="skill-row"><span class="skill-name">English</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Deutsch</span><div class="skill-bar"><div class="skill-fill" data-w="55"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Français</span><div class="skill-bar"><div class="skill-fill" data-w="25"></div></div></div>
-        </div>
+      </div>
+
+      <div class="print-languages">
+        <p class="skill-group-title es">Idiomas</p>
+        <p class="skill-group-title en">Languages</p>
+        <div class="skill-row"><span class="skill-name">Español</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
+        <div class="skill-row"><span class="skill-name">English</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Deutsch</span><div class="skill-bar"><div class="skill-fill" data-w="55"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Français</span><div class="skill-bar"><div class="skill-fill" data-w="25"></div></div></div>
       </div>
 
     </div>
@@ -417,6 +472,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
     <a href="https://welevelup.org" target="_blank" rel="noopener">Level Up ↗</a>
     <a href="https://femicide-watch.up.railway.app/" target="_blank" rel="noopener">Femicide Watch ↗</a>
     <a href="https://cineymujeres-production.up.railway.app/" target="_blank" rel="noopener">Cine y Mujeres ↗</a>
+    <a href="https://crojasu.github.io/" target="_blank" rel="noopener">crojasu.github.io ↗</a>
   </div>
 </footer>
 
