@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en" data-theme="dark">
+<html lang="en" data-lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,21 +8,21 @@
 <meta name="author" content="Catalina Rojas Ugarte"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=IBM+Plex+Sans:wght@300;400;600;700&family=Cormorant+Garamond:wght@300;400&family=Geist:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 [data-theme="dark"]{
-  --bg:#0d0d0d;
-  --surface:#1c1c1c;
-  --line:#333;
+  --bg:#06080e;
+  --surface:#0d1018;
+  --line:rgba(255,255,255,.08);
   --accent:#ff8040;
   --accent-muted:#4a2010;
-  --text-hi:#ffffff;
-  --text:#e8e0d8;
-  --text-mid:#c0b0a0;
-  --text-low:#907060;
-  --btn-bg:#1c1c1c;
+  --text-hi:rgba(255,252,245,.98);
+  --text:rgba(220,225,238,.85);
+  --text-mid:rgba(195,205,222,.65);
+  --text-low:rgba(160,175,200,.4);
+  --btn-bg:rgba(255,255,255,.05);
   --btn-text:#ff8040;
 }
 [data-theme="light"]{
@@ -39,8 +39,8 @@
   --btn-text:#ffffff;
 }
 
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;line-height:1.5;-webkit-font-smoothing:antialiased;transition:background 0.3s,color 0.3s}
+html{scroll-behavior:smooth;font-size:13px}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-weight:400;font-size:0.5rem;line-height:1.5;-webkit-font-smoothing:antialiased;transition:background 0.3s,color 0.3s}
 a{text-decoration:none;color:inherit}
 
 .controls{position:fixed;top:1.2rem;right:1.5rem;display:flex;gap:0.5rem;z-index:100}
@@ -49,10 +49,10 @@ a{text-decoration:none;color:inherit}
 
 .wrap{max-width:1080px;margin:0 auto;padding:0 2.5rem}
 
-header{border-bottom:1px solid var(--line);padding:3.5rem 0 2rem}
+header{border-bottom:1px solid var(--line);padding:6rem 0 2rem}
 .header-grid{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
-.header-label{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem}
-.name{font-size:clamp(2.5rem,5.5vw,4.5rem);font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--text-hi)}
+.header-label{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.8rem}
+.name{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1;letter-spacing:.05em;color:var(--text-hi)}
 .header-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem}
 .header-right a,.header-right span{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--text-mid);transition:color 0.15s}
 .header-right a:hover{color:var(--accent)}
@@ -105,8 +105,9 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
 .footer-links a{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--text-low);text-transform:uppercase;transition:color 0.15s}
 .footer-links a:hover{color:var(--accent)}
 
-[data-lang="es"] .en{display:none}
-[data-lang="en"] .es{display:none}
+[data-lang="es"] .en{display:none}[data-lang="es"] .de{display:none}
+[data-lang="en"] .es{display:none}[data-lang="en"] .de{display:none}
+[data-lang="de"] .en{display:none}[data-lang="de"] .es{display:none}
 
 @media print{
   @page{margin:0.4cm 1.2cm;size:A4}
@@ -185,16 +186,25 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
   .controls{top:0.8rem;right:0.8rem}
 }
 </style>
+
+<script>
+(function(){
+  var l = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0,2);
+  l = l === 'es' ? 'es' : l === 'de' ? 'de' : 'en';
+  document.documentElement.dataset.lang = l;
+  document.documentElement.lang = l;
+})();
+</script>
 </head>
 <body>
 
 <div class="controls">
   <button class="ctrl-btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'">
-    <span class="es">Fondo</span><span class="en">Theme</span>
+    <span class="es">Fondo</span><span class="en">Theme</span><span class="de">Design</span>
   </button>
-  <button class="ctrl-btn" onclick="var l=document.documentElement.dataset.lang==='es'?'en':'es';document.documentElement.dataset.lang=l;document.documentElement.lang=l">EN / ES</button>
+  <button class="ctrl-btn" onclick="var langs=['en','es','de'],cur=langs.indexOf(document.documentElement.dataset.lang),next=langs[(cur+1)%3];document.documentElement.dataset.lang=next;document.documentElement.lang=next">EN / ES / DE</button>
   <button class="ctrl-btn" onclick="window.print()">
-    <span class="es">↓ Descargar PDF</span><span class="en">↓ Download PDF</span>
+    <span class="es">↓ Descargar PDF</span><span class="en">↓ Download PDF</span><span class="de">↓ PDF laden</span>
   </button>
 </div>
 
@@ -205,10 +215,11 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
     <div>
       <p class="header-label es">Senior Software Engineer · AI/LLM · Pipelines de Datos · Automatización</p>
       <p class="header-label en">Senior Software Engineer · AI/LLM Integration · Data Pipelines · Automation</p>
+      <p class="header-label de">Senior Software Engineer · AI/LLM Integration · Datenpipelines · Automatisierung</p>
       <h1 class="name">Catalina Rojas Ugarte</h1>
     </div>
     <div class="header-right">
-      <a href="mailto:rojas.catalina@gmail.com">rojas.catalina@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#12607d7873613c717366737e7b7c7352757f737b7e3c717d7f"><span class="__cf_email__" data-cfemail="394b5653584a175a584d5855505758795e54585055175a5654">[email&#160;protected]</span></a>
       <a href="https://www.linkedin.com/in/catalinarojasu/" target="_blank" rel="noopener">linkedin.com/in/catalinarojasu ↗</a>
       <a href="https://github.com/crojasu" target="_blank" rel="noopener">github.com/crojasu ↗</a>
       <span>Berlin, Germany</span>
@@ -221,9 +232,11 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
   <div class="section-row">
     <span class="section-key es">Perfil</span>
     <span class="section-key en">Profile</span>
+    <span class="section-key de">Profil</span>
     <div>
       <p class="about-text es">Senior Software Engineer con <strong>más de 5 años de experiencia</strong> construyendo sistemas de producción end-to-end. Me especializo en <strong>integración AI/LLM</strong> (Claude API, agentes autónomos, prompt engineering), <strong>pipelines de datos</strong> (web scraping, NLP, ETL) y aplicaciones full-stack (Python, Rails, React). Fundé Miienvio (fintech, adquirida por Transpaygo). He construido agentes AI autónomos corriendo 24/7, monitoreo automatizado de prensa en 5 países (870+ casos), y plataformas de datos analizando más de 100 años de registros. Entrego rápido, trabajo de forma independiente y produzco código limpio de producción. Disponible para contratos remotos.</p>
       <p class="about-text en">Senior Software Engineer with <strong>5+ years building production systems end-to-end</strong>. I specialise in <strong>AI/LLM integration</strong> (Claude API, autonomous agents, prompt engineering), <strong>data pipelines</strong> (web scraping, NLP, ETL) and full-stack applications (Python, Rails, React). Founded Miienvio (fintech, acquired by Transpaygo). I have built autonomous AI agents running 24/7, automated press monitoring across 5 countries (870+ cases), and data platforms analysing 100+ years of records. I ship fast, work independently, and deliver clean production code. Available for remote contracts.</p>
+      <p class="about-text de">Senior Software Engineer mit <strong>5+ Jahren Erfahrung im Aufbau von Produktionssystemen</strong>. Spezialisiert auf <strong>AI/LLM-Integration</strong> (Claude API, autonome Agenten, Prompt Engineering), <strong>Datenpipelines</strong> (Web Scraping, NLP, ETL) und Full-Stack-Anwendungen (Python, Rails, React). Gründerin von Miienvio (Fintech, von Transpaygo übernommen). Verfügbar für Remote-Verträge.</p>
     </div>
   </div>
 </div>
@@ -233,22 +246,27 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
   <div class="section-row">
     <span class="section-key es">Experiencia</span>
     <span class="section-key en">Experience</span>
+    <span class="section-key de">Erfahrung</span>
     <div class="timeline">
 
       <div class="tl-item">
         <div class="tl-header">
           <span class="tl-title es">Senior Software Engineer — Responsable Técnica</span>
           <span class="tl-title en">Senior Software Engineer — Full Technical Lead</span>
+          <span class="tl-title de">Senior Software Engineer — Technische Leitung</span>
           <span class="tl-date">2021 — present · Part-time</span>
         </div>
         <p class="tl-org">WeLevelUp · London, UK · Remote</p>
         <ul class="tl-bullets">
           <li class="es">Responsable técnica completa de la infraestructura digital de Level Up UK</li>
           <li class="en">Full technical ownership of Level Up UK's digital infrastructure</li>
+          <li class="de">Vollständige technische Verantwortung für die digitale Infrastruktur von Level Up UK</li>
           <li class="es">Femicide Media Watch: pipeline de web scraping + NLP que clasifica artículos de prensa diariamente en 5 países, 870+ casos documentados, API REST pública para investigadores</li>
           <li class="en">Femicide Media Watch: web scraping + NLP pipeline classifying press articles daily across 5 countries, 870+ documented cases, public REST API for researchers</li>
+          <li class="de">Femicide Media Watch: Web-Scraping + NLP-Pipeline zur täglichen Klassifizierung von Presseartikeln in 5 Ländern, 870+ dokumentierte Fälle, öffentliche REST API</li>
           <li class="es">Herramientas de campaña digital y gestión de peticiones con 29k+ firmantes</li>
           <li class="en">Digital campaign tools and petition management with 29k+ signatories</li>
+          <li class="de">Digitale Kampagnen-Tools und Petition mit 29k+ Unterzeichnern</li>
         </ul>
         <div class="tl-tags">
           <span class="tag hot">Python</span><span class="tag hot">NLP</span><span class="tag hot">Web Scraping</span><span class="tag hot">Claude API</span>
@@ -264,12 +282,15 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
         </div>
         <p class="tl-org">InfAI — Institut für Angewandte Informatik · Leipzig, Germany</p>
         <ul class="tl-bullets">
-          <li class="es">Entregué 4+ proyectos simultáneos como PM y developer: arquitectura, código, review y testing</li>
-          <li class="en">Delivered 4+ simultaneous projects as PM and developer: architecture, code, review, and testing</li>
+          <li class="es">Participé en 4+ proyectos en distintos roles — como software engineer independiente, como project manager y en equipos colaborativos</li>
+          <li class="en">Contributed to 4+ projects across different roles — as a solo software engineer, project manager, and collaborative team member</li>
+          <li class="de">Mitarbeit in 4+ Projekten in verschiedenen Rollen — als eigenständige Software Engineer, als Projektmanagerin und in Teamarbeit</li>
           <li class="es">Jobs4Students: plataforma de matching empleadores–estudiantes con algoritmo a medida y pipeline de datos</li>
           <li class="en">Jobs4Students: employer–student matching platform with custom algorithm and data pipeline</li>
+          <li class="de">Jobs4Students: Matching-Plattform für Arbeitgeber und Studenten mit eigenem Algorithmus</li>
           <li class="es">Plataforma de educación en IA financiada por el gobierno federal alemán</li>
           <li class="en">State-funded AI education platform for the German federal government</li>
+          <li class="de">Staatlich finanzierte KI-Bildungsplattform für die deutsche Bundesregierung</li>
         </ul>
         <div class="tl-tags">
           <span class="tag hot">Python</span><span class="tag hot">Data Science</span><span class="tag hot">Data Pipelines</span>
@@ -281,14 +302,17 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
         <div class="tl-header">
           <span class="tl-title es">Fundadora y Software Engineer</span>
           <span class="tl-title en">Founder and Software Engineer</span>
+          <span class="tl-title de">Gründerin und Software Engineer</span>
           <span class="tl-date">2017 — 2020</span>
         </div>
         <p class="tl-org">Miienvio · Berlin, Germany</p>
         <ul class="tl-bullets">
           <li class="es">Construí y escalé una plataforma fintech para transferencias internacionales de dinero, desde cero hasta adquisición</li>
           <li class="en">Built and scaled a fintech platform for international money transfers, from zero to acquisition</li>
+          <li class="de">Aufbau und Skalierung einer Fintech-Plattform für internationale Geldtransfers bis zur Übernahme</li>
           <li class="es">Ownership técnico completo: arquitectura, desarrollo, deploy y gestión de equipo</li>
           <li class="en">Full technical ownership: architecture, development, deployment, and team management</li>
+          <li class="de">Vollständige technische Verantwortung: Architektur, Entwicklung, Deployment und Teamführung</li>
         </ul>
         <div class="tl-tags">
           <span class="tag hot">Ruby on Rails</span><span class="tag hot">React</span>
@@ -305,6 +329,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
   <div class="section-row">
     <span class="section-key es">Proyectos</span>
     <span class="section-key en">Projects</span>
+    <span class="section-key de">Projekte</span>
     <div style="width:100%;overflow-x:auto">
       <table class="project-table">
         <tbody>
@@ -315,6 +340,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
               <div class="pt-name"><a href="https://femicide-watch.up.railway.app/" target="_blank" rel="noopener">Femicide Media Watch ↗</a></div>
               <div class="pt-role es">Web scraping · NLP · Pipeline automatizado · API pública · 2022</div>
               <div class="pt-role en">Web scraping · NLP · Automated pipeline · Public API · 2022</div>
+              <div class="pt-role de">Web Scraping · NLP · Automatisierte Pipeline · Öffentliche API · 2022</div>
               <div class="pt-desc es">Pipeline automatizado de web scraping + NLP que clasifica artículos de prensa diariamente en 5 países. 870+ casos documentados. API REST pública para investigadores. Ejecución autónoma diaria a las 07:00 UTC.</div>
               <div class="pt-desc en">Automated web scraping + NLP pipeline classifying press articles daily across 5 countries. 870+ documented cases. Public REST API for researchers. Autonomous daily execution at 07:00 UTC.</div>
             </td>
@@ -333,6 +359,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
               <div class="pt-name en">Autonomous AI Agent</div>
               <div class="pt-role es">Claude API · Agente 24/7 · Automatización · 2024</div>
               <div class="pt-role en">Claude API · 24/7 Agent · Automation · 2024</div>
+              <div class="pt-role de">Claude API · 24/7 Agent · Automatisierung · 2024</div>
               <div class="pt-desc es">Agente AI autónomo corriendo 24/7 en hardware dedicado. Ejecuta tareas programadas, monitoreo de medios, web scraping y workflows multi-paso complejos. Manejo de errores, gestión de estado y procesos de larga duración.</div>
               <div class="pt-desc en">Autonomous AI agent running 24/7 on dedicated hardware. Performs scheduled tasks, media monitoring, web scraping, and complex multi-step workflows. Error recovery, state management, and long-running autonomous processes.</div>
             </td>
@@ -410,6 +437,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
       <div>
         <p class="skill-group-title es">Lenguajes & Frameworks</p>
         <p class="skill-group-title en">Languages & Frameworks</p>
+        <p class="skill-group-title de">Sprachen & Frameworks</p>
         <div class="skill-row"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div></div>
         <div class="skill-row"><span class="skill-name">Ruby / Rails</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
         <div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
@@ -421,6 +449,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
       <div>
         <p class="skill-group-title es">Datos & Machine Learning</p>
         <p class="skill-group-title en">Data & Machine Learning</p>
+        <p class="skill-group-title de">Daten & Machine Learning</p>
         <div class="skill-row"><span class="skill-name">Pandas / NumPy</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
         <div class="skill-row"><span class="skill-name">Scikit-Learn</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
         <div class="skill-row"><span class="skill-name">Keras / TensorFlow</span><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></div>
@@ -432,6 +461,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
       <div>
         <p class="skill-group-title es">Infraestructura & Cloud</p>
         <p class="skill-group-title en">Infrastructure & Cloud</p>
+        <p class="skill-group-title de">Infrastruktur & Cloud</p>
         <div class="skill-row"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
         <div class="skill-row"><span class="skill-name">Git / GitHub</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
         <div class="skill-row"><span class="skill-name">GCP</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
@@ -452,6 +482,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
       <div class="print-languages">
         <p class="skill-group-title es">Idiomas</p>
         <p class="skill-group-title en">Languages</p>
+        <p class="skill-group-title de">Sprachen</p>
         <div class="skill-row"><span class="skill-name">Español</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
         <div class="skill-row"><span class="skill-name">English</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
         <div class="skill-row"><span class="skill-name">Deutsch</span><div class="skill-bar"><div class="skill-fill" data-w="55"></div></div></div>
@@ -463,9 +494,9 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
 </div>
 
 <footer>
-  <span class="footer-id"><strong>Catalina Rojas Ugarte</strong> · Senior Software Engineer · AI/LLM · Berlin · Available for contracts</span>
+  <span class="footer-id"><strong>Catalina Rojas Ugarte</strong> · Senior Software Engineer · AI/LLM · Berlin · <span class="en">Available for contracts</span><span class="es">Disponible para contratos</span><span class="de">Verfügbar für Verträge</span></span>
   <div class="footer-links">
-    <a href="mailto:rojas.catalina@gmail.com">email ↗</a>
+    <a href="/cdn-cgi/l/email-protection#63110c0902104d000217020f0a0d0223040e020a0f4d000c0e">email ↗</a>
     <a href="https://www.linkedin.com/in/catalinarojasu/" target="_blank" rel="noopener">LinkedIn ↗</a>
     <a href="https://github.com/crojasu" target="_blank" rel="noopener">GitHub ↗</a>
     <a href="https://welevelup.org" target="_blank" rel="noopener">Level Up ↗</a>
@@ -477,16 +508,5 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
 
 </div>
 
-<script>
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      setTimeout(()=>{ e.target.style.width = e.target.dataset.w + '%' }, 100);
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:0.3});
-document.querySelectorAll('.skill-fill').forEach(b => io.observe(b));
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const io = new IntersectionObserver(en
