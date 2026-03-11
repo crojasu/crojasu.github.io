@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catalina Rojas Ugarte</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Geist:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Geist:wght@200;300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { height:100%; }
@@ -84,7 +84,7 @@ body.de .es,body.de .en{display:none}
 h1 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(1.8rem,3.8vw,2.8rem); letter-spacing:.07em; line-height:1.1; color:rgba(255,252,245,.98); margin-bottom:.5rem; }
 .title { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(210,215,230,.65); margin-bottom:1.8rem; }
 .div-line { width:28px; height:1px; background:rgba(200,210,225,.25); margin-bottom:1.8rem; }
-.bio { font-family:'Geist',sans-serif; font-weight:300; font-size:clamp(.95rem,1.7vw,1.08rem); line-height:1.85; color:rgba(220,225,238,.85); max-width:400px; }
+.bio { font-family:'Inter',sans-serif; font-weight:300; font-size:.88rem; line-height:1.85; color:rgba(220,225,238,.85); max-width:400px; letter-spacing:.01em; }
 
 .bottom { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem 4rem; animation:up .7s .16s ease both; }
 .col-label { font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:rgba(190,200,220,.5); margin-bottom:.9rem; }
@@ -99,8 +99,25 @@ a.entry-name:hover { color:#fff; }
 
 @keyframes up { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 @media(max-width:560px){
-  .bottom{grid-template-columns:1fr} .page{padding:2rem 1.8rem}
-  .top{flex-direction:column;align-items:flex-start;gap:1rem} .dial-wrap{bottom:1rem;right:1rem}
+  .page{ display:block; padding:0; min-height:auto; }
+  .middle{
+    min-height:100svh; display:flex; flex-direction:column;
+    justify-content:center; padding:2rem 1.8rem;
+  }
+  .top{
+    position:absolute; top:1.2rem; left:1.5rem; right:1.5rem;
+    display:flex; justify-content:space-between; align-items:flex-start;
+    z-index:10; flex-direction:column; gap:.5rem;
+  }
+  .top > div{display:flex;align-items:center;gap:.8rem;}
+  .loc{font-size:9px;}
+  .bottom{
+    grid-template-columns:1fr; padding:2.5rem 1.8rem 5rem;
+    background:rgba(0,0,0,.75);
+  }
+  .dial-wrap{ bottom:1rem; right:1rem; z-index:9999; }
+  h1{font-size:clamp(2rem,10vw,2.6rem)}
+  .bio{max-width:100%}
 }
 </style>
 </head>
@@ -129,9 +146,9 @@ a.entry-name:hover { color:#fff; }
 <div class="page">
   <div class="top">
     <nav class="nav">
-      <a href="https://crojasu.github.io" target="_blank">CV</a>
+      <a href="/cv" target="_blank">CV</a>
       <a href="https://github.com/crojasu" target="_blank">GitHub</a>
-      <a href="mailto:rojas.catalina@gmail.com">Email</a>
+      <a href="/cdn-cgi/l/email-protection#31435e5b50421f525045505d585f5071565c50585d1f525e5c">Email</a>
     </nav>
     <div style="display:flex;align-items:center;gap:1.5rem;">
       <span class="loc">Santiago de Chile · Berlin · Grecia</span>
@@ -191,7 +208,7 @@ a.entry-name:hover { color:#fff; }
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function setLang(l,btn){document.body.className=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');}
 (function(){var l=(navigator.language||'es').toLowerCase();l=l.startsWith('es')?'es':l.startsWith('de')?'de':'en';setLang(l,document.querySelector('.lang button:nth-child('+({es:1,en:3,de:5}[l])+')')  );})();
 
