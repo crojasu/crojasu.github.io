@@ -93,10 +93,9 @@ header{border-bottom:1px solid var(--line);padding:6rem 0 2rem}
 
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 4rem}
 .skill-group-title{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--line)}
-.skill-row{display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem}
-.skill-name{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--text);min-width:140px}
-.skill-bar{flex:1;height:2px;background:var(--line);position:relative}
-.skill-fill{height:100%;background:var(--accent);width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+.skill-list{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.5rem}
+.skill-item{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--text);padding:0.3rem 0.6rem;border:1px solid var(--line)}
+.skill-item.primary{color:var(--accent);border-color:var(--accent-muted)}
 
 footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-id{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text-low)}
@@ -156,13 +155,11 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
   .tag-list{gap:0.08rem!important}
   .project-table tr{border-bottom:1px solid #eee!important}
 
-  /* --- SKILLS: 5-column, no bars, tight --- */
+  /* --- SKILLS: 5-column, compact tags --- */
   .skills-grid{display:grid!important;grid-template-columns:1fr 1fr 1fr 1fr 0.7fr!important;gap:0.05rem 0.6rem!important}
   .skill-group-title{font-size:4.5pt!important;margin-bottom:0.05rem!important;padding-bottom:0.03rem!important}
-  .skill-row{margin-bottom:0!important;gap:0!important}
-  .skill-name{font-size:5.5pt!important;min-width:auto!important;line-height:1.3!important}
-  .skill-bar{display:none!important}
-  .skill-row div[style*="margin-top"]{margin-top:0.05rem!important}
+  .skill-list{gap:0.15rem!important;margin-bottom:0.2rem!important}
+  .skill-item{font-size:5pt!important;padding:0.05rem 0.2rem!important}
 
   /* --- FOOTER: minimal --- */
   footer{padding:0.1rem 0!important}
@@ -234,9 +231,9 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
     <span class="section-key en">Profile</span>
     <span class="section-key de">Profil</span>
     <div>
-      <p class="about-text es">Senior Software Engineer con <strong>más de 5 años de experiencia</strong> construyendo sistemas de producción end-to-end. Me especializo en <strong>integración AI/LLM</strong> (Claude API, agentes autónomos, prompt engineering), <strong>pipelines de datos</strong> (web scraping, NLP, ETL) y aplicaciones full-stack (Python, Rails, React). Fundé Miienvio (fintech, adquirida por Transpaygo). He construido agentes AI autónomos corriendo 24/7, monitoreo automatizado de prensa en 5 países (870+ casos), y plataformas de datos analizando más de 100 años de registros. Entrego rápido, trabajo de forma independiente y produzco código limpio de producción. Disponible para contratos remotos.</p>
-      <p class="about-text en">Senior Software Engineer with <strong>5+ years building production systems end-to-end</strong>. I specialise in <strong>AI/LLM integration</strong> (Claude API, autonomous agents, prompt engineering), <strong>data pipelines</strong> (web scraping, NLP, ETL) and full-stack applications (Python, Rails, React). Founded Miienvio (fintech, acquired by Transpaygo). I have built autonomous AI agents running 24/7, automated press monitoring across 5 countries (870+ cases), and data platforms analysing 100+ years of records. I ship fast, work independently, and deliver clean production code. Available for remote contracts.</p>
-      <p class="about-text de">Senior Software Engineer mit <strong>5+ Jahren Erfahrung im Aufbau von Produktionssystemen</strong>. Spezialisiert auf <strong>AI/LLM-Integration</strong> (Claude API, autonome Agenten, Prompt Engineering), <strong>Datenpipelines</strong> (Web Scraping, NLP, ETL) und Full-Stack-Anwendungen (Python, Rails, React). Gründerin von Miienvio (Fintech, von Transpaygo übernommen). Verfügbar für Remote-Verträge.</p>
+      <p class="about-text es">Diseño y construyo sistemas autónomos que operan sin intervención humana — <strong>arquitecturas multi-agente LLM</strong>, <strong>pipelines de datos</strong> y <strong>aplicaciones full-stack</strong> en producción. Mi enfoque: convertir problemas complejos en infraestructura que se mantiene sola. Fundé una fintech adquirida por Transpaygo, llevo la dirección técnica de una organización de campañas en UK, y construyo herramientas de inteligencia geográfica, protocolos P2P y sistemas de trading con IA. Disponible para contratos remotos.</p>
+      <p class="about-text en">I design and build autonomous systems that operate without human intervention — <strong>multi-agent LLM architectures</strong>, <strong>data pipelines</strong>, and production <strong>full-stack applications</strong>. My focus: turning complex problems into self-sustaining infrastructure. I founded a fintech acquired by Transpaygo, lead the technical direction of a UK campaign organisation, and build geo-intelligence tools, P2P protocols, and AI trading systems. Available for remote contracts.</p>
+      <p class="about-text de">Ich entwerfe und baue autonome Systeme, die ohne menschliches Eingreifen funktionieren — <strong>Multi-Agent-LLM-Architekturen</strong>, <strong>Datenpipelines</strong> und produktionsreife <strong>Full-Stack-Anwendungen</strong>. Mein Fokus: komplexe Probleme in selbsttragende Infrastruktur verwandeln. Ich habe ein Fintech gegründet (von Transpaygo übernommen), leite die technische Richtung einer britischen Kampagnenorganisation und baue Geo-Intelligence-Tools, P2P-Protokolle und KI-Handelssysteme. Verfügbar für Remote-Verträge.</p>
     </div>
   </div>
 </div>
@@ -248,6 +245,28 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
     <span class="section-key en">Experience</span>
     <span class="section-key de">Erfahrung</span>
     <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-header">
+          <span class="tl-title es">Software Engineer Independiente</span>
+          <span class="tl-title en">Independent Software Engineer</span>
+          <span class="tl-title de">Selbstständige Software Engineer</span>
+          <span class="tl-date">2025 — present</span>
+        </div>
+        <p class="tl-org">Freelance · Berlin, Germany · Remote</p>
+        <ul class="tl-bullets">
+          <li class="es">Diseño e implementación de sistemas multi-agente LLM para mercados de predicción (30+ agentes, orquestación multi-proveedor)</li>
+          <li class="en">Design and implementation of multi-agent LLM systems for prediction markets (30+ agents, multi-provider orchestration)</li>
+          <li class="de">Entwurf und Implementierung von Multi-Agent-LLM-Systemen für Vorhersagemärkte (30+ Agenten, Multi-Provider-Orchestrierung)</li>
+          <li class="es">Desarrollo de protocolo P2P descentralizado para distribución de contenido libre (Helia, IPFS, cifrado E2E)</li>
+          <li class="en">Development of decentralised P2P protocol for libre content distribution (Helia, IPFS, E2E encryption)</li>
+          <li class="de">Entwicklung eines dezentralen P2P-Protokolls für freie Inhaltsverteilung (Helia, IPFS, E2E-Verschlüsselung)</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tag hot">Python</span><span class="tag hot">LLM Orchestration</span><span class="tag hot">TypeScript</span>
+          <span class="tag">Claude API</span><span class="tag">Groq</span>
+        </div>
+      </div>
 
       <div class="tl-item">
         <div class="tl-header">
@@ -267,10 +286,13 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
           <li class="es">Herramientas de campaña digital y gestión de peticiones con 29k+ firmantes</li>
           <li class="en">Digital campaign tools and petition management with 29k+ signatories</li>
           <li class="de">Digitale Kampagnen-Tools und Petition mit 29k+ Unterzeichnern</li>
+          <li class="es">Audience Map: herramienta de geo-targeting con datos IMD, censo y voto por circunscripción · Setup WhatsApp Business, Meta Pixel y Movement CRM (29k+ contactos) · Coalition hub para campaña Holloway Women's Centre</li>
+          <li class="en">Audience Map: geo-targeting tool with IMD deprivation, census and voting data by constituency · WhatsApp Business, Meta Pixel and Movement CRM setup (29k+ contacts) · Coalition hub for Holloway Women's Centre campaign</li>
+          <li class="de">Audience Map: Geo-Targeting-Tool mit IMD-, Volkszählungs- und Wahldaten · WhatsApp Business, Meta Pixel und Movement CRM Setup (29k+ Kontakte)</li>
         </ul>
         <div class="tl-tags">
-          <span class="tag hot">Python</span><span class="tag hot">NLP</span><span class="tag hot">Web Scraping</span><span class="tag hot">Claude API</span>
-          <span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span><span class="tag">Railway</span><span class="tag">Docker</span><span class="tag">GCP</span>
+          <span class="tag hot">Python</span><span class="tag hot">NLP</span><span class="tag hot">Claude API</span>
+          <span class="tag">Django</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
         </div>
       </div>
 
@@ -293,8 +315,8 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
           <li class="de">Staatlich finanzierte KI-Bildungsplattform für die deutsche Bundesregierung</li>
         </ul>
         <div class="tl-tags">
-          <span class="tag hot">Python</span><span class="tag hot">Data Science</span><span class="tag hot">Data Pipelines</span>
-          <span class="tag">Ruby on Rails</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">GCP</span><span class="tag">AWS</span>
+          <span class="tag hot">Python</span><span class="tag hot">Data Pipelines</span>
+          <span class="tag">Ruby on Rails</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
         </div>
       </div>
 
@@ -341,13 +363,14 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
               <div class="pt-role es">Web scraping · NLP · Pipeline automatizado · API pública · 2022</div>
               <div class="pt-role en">Web scraping · NLP · Automated pipeline · Public API · 2022</div>
               <div class="pt-role de">Web Scraping · NLP · Automatisierte Pipeline · Öffentliche API · 2022</div>
-              <div class="pt-desc es">Pipeline automatizado de web scraping + NLP que clasifica artículos de prensa diariamente en 5 países. 870+ casos documentados. API REST pública para investigadores. Ejecución autónoma diaria a las 07:00 UTC.</div>
-              <div class="pt-desc en">Automated web scraping + NLP pipeline classifying press articles daily across 5 countries. 870+ documented cases. Public REST API for researchers. Autonomous daily execution at 07:00 UTC.</div>
+              <div class="pt-desc es">Pipeline automatizado de web scraping + NLP que clasifica artículos de prensa diariamente en 5 países. 870+ casos documentados. API REST pública para investigadores.</div>
+              <div class="pt-desc en">Automated web scraping + NLP pipeline classifying press articles daily across 5 countries. 870+ documented cases. Public REST API for researchers.</div>
+              <div class="pt-desc de">Automatisierte Web-Scraping + NLP-Pipeline zur täglichen Klassifizierung von Presseartikeln in 5 Ländern. 870+ dokumentierte Fälle. Öffentliche REST API für Forscher.</div>
             </td>
             <td class="pt-tags">
               <div class="tag-list">
-                <span class="tag hot">Python</span><span class="tag hot">NLP</span><span class="tag hot">Web Scraping</span><span class="tag hot">Claude API</span>
-                <span class="tag">REST API</span><span class="tag">Railway</span>
+                <span class="tag hot">Python</span><span class="tag hot">NLP</span><span class="tag hot">Claude API</span>
+                <span class="tag">Web Scraping</span><span class="tag">REST API</span>
               </div>
             </td>
           </tr>
@@ -355,18 +378,20 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
           <tr>
             <td class="pt-idx">02</td>
             <td class="pt-main">
-              <div class="pt-name es">Agente AI Autónomo</div>
-              <div class="pt-name en">Autonomous AI Agent</div>
-              <div class="pt-role es">Claude API · Agente 24/7 · Automatización · 2024</div>
-              <div class="pt-role en">Claude API · 24/7 Agent · Automation · 2024</div>
-              <div class="pt-role de">Claude API · 24/7 Agent · Automatisierung · 2024</div>
-              <div class="pt-desc es">Agente AI autónomo corriendo 24/7 en hardware dedicado. Ejecuta tareas programadas, monitoreo de medios, web scraping y workflows multi-paso complejos. Manejo de errores, gestión de estado y procesos de larga duración.</div>
-              <div class="pt-desc en">Autonomous AI agent running 24/7 on dedicated hardware. Performs scheduled tasks, media monitoring, web scraping, and complex multi-step workflows. Error recovery, state management, and long-running autonomous processes.</div>
+              <div class="pt-name es">Polymarket AI Trading System</div>
+              <div class="pt-name en">Polymarket AI Trading System</div>
+              <div class="pt-name de">Polymarket AI Trading System</div>
+              <div class="pt-role es">Python · Multi-agent · LLM Orchestration · Claude API · Groq · Telegram · 2025</div>
+              <div class="pt-role en">Python · Multi-agent · LLM Orchestration · Claude API · Groq · Telegram · 2025</div>
+              <div class="pt-role de">Python · Multi-agent · LLM Orchestration · Claude API · Groq · Telegram · 2025</div>
+              <div class="pt-desc es">Sistema de predicción de mercados políticos con arquitectura de 3 etapas: detector de señales en tiempo real (WebSocket), swarm de 30 agentes LLM con personas especializadas (economistas, analistas geopolíticos, periodistas), y sintetizador final. Integra Groq, Claude Haiku, DeepSeek y Qwen en paralelo. Bot de ejecución con aprobación vía Telegram.</div>
+              <div class="pt-desc en">Political prediction market system with 3-stage architecture: real-time signal detector (WebSocket), swarm of 30 specialised LLM agent personas (economists, geopolitical analysts, journalists), and final synthesiser. Integrates Groq, Claude Haiku, DeepSeek and Qwen in parallel. Execution bot with Telegram approve/reject alerts.</div>
+              <div class="pt-desc de">Politisches Vorhersagemarkt-System mit 3-stufiger Architektur: Echtzeit-Signaldetektor (WebSocket), Schwarm aus 30 spezialisierten LLM-Agenten und finalem Synthesizer. Integriert Groq, Claude Haiku, DeepSeek und Qwen parallel.</div>
             </td>
             <td class="pt-tags">
               <div class="tag-list">
-                <span class="tag hot">Claude API</span><span class="tag hot">AI Automation</span><span class="tag hot">Python</span>
-                <span class="tag">Prompt Engineering</span>
+                <span class="tag hot">Python</span><span class="tag hot">Multi-agent</span><span class="tag hot">LLM Orchestration</span>
+                <span class="tag">Claude API</span><span class="tag">Groq</span>
               </div>
             </td>
           </tr>
@@ -374,16 +399,18 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
           <tr>
             <td class="pt-idx">03</td>
             <td class="pt-main">
-              <div class="pt-name"><a href="https://cineymujeres-production.up.railway.app/" target="_blank" rel="noopener">Cine y Mujeres ↗</a></div>
-              <div class="pt-role es">Data pipeline · Visualización · Web scraping · Investigación</div>
-              <div class="pt-role en">Data pipeline · Visualisation · Web scraping · Research</div>
-              <div class="pt-desc es">Pipeline de datos que scrapea IMDb y combina con datasets académicos para analizar participación femenina en el cine chileno. 100+ años de historia, gráficos interactivos D3.js, PostgreSQL backend.</div>
-              <div class="pt-desc en">Data pipeline scraping IMDb and combining with academic datasets to analyse female participation in Chilean cinema. 100+ years of history, interactive D3.js charts, PostgreSQL backend.</div>
+              <div class="pt-name"><a href="https://crojasu.github.io/audience-map" target="_blank" rel="noopener">Audience Map ↗</a></div>
+              <div class="pt-role es">Python · TypeScript · GeoJSON · IMD Data · Census · Civic Tech · 2024</div>
+              <div class="pt-role en">Python · TypeScript · GeoJSON · IMD Data · Census · Civic Tech · 2024</div>
+              <div class="pt-role de">Python · TypeScript · GeoJSON · IMD Data · Census · Civic Tech · 2024</div>
+              <div class="pt-desc es">Herramienta de geo-targeting para campañas cívicas. Combina datos de deprivación IMD, censo de etnicidad y datos electorales por circunscripción. Tres modos de scoring: deprivación, diversidad y voto. Desplegada como web app estática.</div>
+              <div class="pt-desc en">Geo-targeting intelligence tool for civic campaigns. Combines IMD deprivation data, Census ethnicity data, and voting data by constituency. Three scoring modes: deprivation, diversity, and voting. Deployed as a static web app.</div>
+              <div class="pt-desc de">Geo-Targeting-Tool für Kampagnen. Kombiniert IMD-Deprivationsdaten, Volkszählungsdaten und Wahldaten nach Wahlkreis. Drei Scoring-Modi. Als statische Web-App deployed.</div>
             </td>
             <td class="pt-tags">
               <div class="tag-list">
-                <span class="tag hot">Python</span><span class="tag hot">Data Pipeline</span><span class="tag hot">Web Scraping</span>
-                <span class="tag">D3.js</span><span class="tag">PostgreSQL</span><span class="tag">Railway</span>
+                <span class="tag hot">Python</span><span class="tag hot">TypeScript</span><span class="tag hot">GeoJSON</span>
+                <span class="tag">Civic Tech</span>
               </div>
             </td>
           </tr>
@@ -391,16 +418,18 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
           <tr>
             <td class="pt-idx">04</td>
             <td class="pt-main">
-              <div class="pt-name"><a href="https://welevelup.org" target="_blank" rel="noopener">Level Up — welevelup.org ↗</a></div>
-              <div class="pt-role es">Responsable técnica · 2021 — presente</div>
-              <div class="pt-role en">Full technical ownership · 2021 — present</div>
-              <div class="pt-desc es">Infraestructura técnica completa de organización del Reino Unido. Sitio web, herramientas de campaña digital, gestión de peticiones con 29k+ firmantes.</div>
-              <div class="pt-desc en">Full technical infrastructure for a UK organisation. Website, digital campaign tools, petition management with 29k+ signatories.</div>
+              <div class="pt-name"><a href="https://cineymujeres-production.up.railway.app/" target="_blank" rel="noopener">Cine y Mujeres ↗</a></div>
+              <div class="pt-role es">Data pipeline · Visualización · Web scraping · Investigación</div>
+              <div class="pt-role en">Data pipeline · Visualisation · Web scraping · Research</div>
+              <div class="pt-role de">Data Pipeline · Visualisierung · Web Scraping · Forschung</div>
+              <div class="pt-desc es">Pipeline de datos que scrapea IMDb y combina con datasets académicos para analizar participación femenina en el cine chileno. 100+ años de historia, gráficos interactivos D3.js, PostgreSQL backend.</div>
+              <div class="pt-desc en">Data pipeline scraping IMDb and combining with academic datasets to analyse female participation in Chilean cinema. 100+ years of history, interactive D3.js charts, PostgreSQL backend.</div>
+              <div class="pt-desc de">Datenpipeline, die IMDb scrapt und mit akademischen Datensätzen kombiniert, um die weibliche Beteiligung im chilenischen Kino zu analysieren. 100+ Jahre Geschichte, interaktive D3.js-Charts.</div>
             </td>
             <td class="pt-tags">
               <div class="tag-list">
-                <span class="tag hot">Python</span><span class="tag hot">Django</span>
-                <span class="tag">Docker</span><span class="tag">GCP</span>
+                <span class="tag hot">Python</span><span class="tag hot">Data Pipeline</span>
+                <span class="tag">D3.js</span><span class="tag">Web Scraping</span><span class="tag">PostgreSQL</span>
               </div>
             </td>
           </tr>
@@ -408,22 +437,109 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
           <tr>
             <td class="pt-idx">05</td>
             <td class="pt-main">
-              <div class="pt-name">Jobs4Students</div>
-              <div class="pt-role es">Matching algorithm · Data pipeline · 2021</div>
-              <div class="pt-role en">Matching algorithm · Data pipeline · 2021</div>
-              <div class="pt-desc es">Plataforma de matching empleadores–estudiantes con algoritmo a medida y pipeline de procesamiento de datos.</div>
-              <div class="pt-desc en">Employer–student matching platform with custom algorithm and data processing pipeline.</div>
+              <div class="pt-name"><a href="https://welevelup.org" target="_blank" rel="noopener">Level Up — welevelup.org ↗</a></div>
+              <div class="pt-role es">Responsable técnica · 2021 — presente</div>
+              <div class="pt-role en">Full technical ownership · 2021 — present</div>
+              <div class="pt-role de">Technische Leitung · 2021 — heute</div>
+              <div class="pt-desc es">Infraestructura técnica completa de organización del Reino Unido. Sitio web, herramientas de campaña digital, gestión de peticiones con 29k+ firmantes. Audience Map: herramienta de geo-targeting con datos IMD, censo y voto por circunscripción. Setup WhatsApp Business, Meta Pixel y Movement CRM (29k+ contactos). Coalition hub para campaña Holloway Women's Centre.</div>
+              <div class="pt-desc en">Full technical infrastructure for a UK organisation. Website, digital campaign tools, petition management with 29k+ signatories. Audience Map: geo-targeting tool with IMD deprivation, census and voting data by constituency. WhatsApp Business, Meta Pixel and Movement CRM setup (29k+ contacts). Coalition hub for Holloway Women's Centre campaign.</div>
+              <div class="pt-desc de">Vollständige technische Infrastruktur für eine britische Organisation. Website, digitale Kampagnen-Tools, Petition mit 29k+ Unterzeichnern. Audience Map: Geo-Targeting-Tool mit IMD-, Volkszählungs- und Wahldaten. WhatsApp Business, Meta Pixel und Movement CRM Setup (29k+ Kontakte).</div>
             </td>
             <td class="pt-tags">
               <div class="tag-list">
-                <span class="tag hot">Ruby on Rails</span><span class="tag hot">Python</span>
-                <span class="tag">Vue</span><span class="tag">Docker</span><span class="tag">React</span>
+                <span class="tag hot">Python</span><span class="tag hot">Django</span><span class="tag hot">TypeScript</span>
+                <span class="tag">Docker</span><span class="tag">GCP</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="pt-idx">06</td>
+            <td class="pt-main">
+              <div class="pt-name"><a href="https://github.com/crojasu/weft" target="_blank" rel="noopener">GOTA — Decentralised P2P File Sharing Protocol ↗</a></div>
+              <div class="pt-role es">TypeScript · Helia · libp2p · E2E Encryption · P2P · Grant Pending · 2025</div>
+              <div class="pt-role en">TypeScript · Helia · libp2p · E2E Encryption · P2P · Grant Pending · 2025</div>
+              <div class="pt-role de">TypeScript · Helia · libp2p · E2E Encryption · P2P · Grant Pending · 2025</div>
+              <div class="pt-desc es">Protocolo P2P descentralizado para distribución de contenido libre. Basado en Helia e IPFS, con cifrado E2E, donaciones vía Lightning Network y arquitectura federada. Postulación de grant NLnet NGI Zero Commons Fund en curso.</div>
+              <div class="pt-desc en">Decentralised P2P protocol for libre content distribution. Built on Helia and IPFS, with E2E encryption, Lightning Network donations, and federated architecture. NLnet NGI Zero Commons Fund grant application in progress.</div>
+              <div class="pt-desc de">Dezentrales P2P-Protokoll für freie Inhaltsverteilung. Basiert auf Helia und IPFS, mit E2E-Verschlüsselung und Lightning-Donationen. NLnet-Förderantrag läuft.</div>
+            </td>
+            <td class="pt-tags">
+              <div class="tag-list">
+                <span class="tag hot">TypeScript</span><span class="tag hot">Helia</span><span class="tag hot">libp2p</span>
+                <span class="tag">IPFS</span><span class="tag">E2E Encryption</span>
               </div>
             </td>
           </tr>
 
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section">
+  <div class="section-row">
+    <span class="section-key es">Educación</span>
+    <span class="section-key en">Education</span>
+    <span class="section-key de">Ausbildung</span>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-header">
+          <span class="tl-title">Le Wagon Berlin — Data Science & AI</span>
+          <span class="tl-date">2022</span>
+        </div>
+        <p class="tl-org">Bootcamp · 9 weeks · Berlin, Germany</p>
+        <ul class="tl-bullets">
+          <li class="es">Machine learning, estadística, deep learning, data engineering y producción de modelos con Python</li>
+          <li class="en">Machine learning, statistics, deep learning, data engineering and model production with Python</li>
+          <li class="de">Machine Learning, Statistik, Deep Learning, Data Engineering und Modellproduktion mit Python</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tag hot">Python</span><span class="tag hot">Machine Learning</span>
+          <span class="tag">Pandas</span><span class="tag">Scikit-Learn</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-header">
+          <span class="tl-title">Le Wagon Berlin — Full-Stack Web Development</span>
+          <span class="tl-date">2018</span>
+        </div>
+        <p class="tl-org">Bootcamp · Batch #142 · 9 weeks · Berlin, Germany</p>
+        <ul class="tl-bullets">
+          <li class="es">Ruby on Rails, JavaScript, bases de datos, arquitectura MVC y deploy de aplicaciones web completas</li>
+          <li class="en">Ruby on Rails, JavaScript, databases, MVC architecture and full web application deployment</li>
+          <li class="de">Ruby on Rails, JavaScript, Datenbanken, MVC-Architektur und vollständiges Web-App-Deployment</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tag hot">Ruby on Rails</span><span class="tag hot">JavaScript</span>
+          <span class="tag">PostgreSQL</span><span class="tag">HTML/CSS</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-header">
+          <span class="tl-title es">Licenciatura en Antropología</span>
+          <span class="tl-title en">B.A. Anthropology</span>
+          <span class="tl-title de">B.A. Anthropologie</span>
+          <span class="tl-date"></span>
+        </div>
+        <p class="tl-org">Escuela Nacional de Antropología e Historia (ENAH) · Mexico City</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-header">
+          <span class="tl-title es">Física y Matemáticas (2 años)</span>
+          <span class="tl-title en">Physics & Mathematics (2 years)</span>
+          <span class="tl-title de">Physik & Mathematik (2 Jahre)</span>
+          <span class="tl-date"></span>
+        </div>
+        <p class="tl-org">Universidad de Chile · Santiago</p>
+      </div>
+
     </div>
   </div>
 </div>
@@ -438,55 +554,52 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
         <p class="skill-group-title es">Lenguajes & Frameworks</p>
         <p class="skill-group-title en">Languages & Frameworks</p>
         <p class="skill-group-title de">Sprachen & Frameworks</p>
-        <div class="skill-row"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Ruby / Rails</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
-        <div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Vue / React</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
-        <div class="skill-row"><span class="skill-name">HTML / CSS</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
-        <div class="skill-row"><span class="skill-name">SQL / PostgreSQL</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+        <div class="skill-list">
+          <span class="skill-item primary">Python</span><span class="skill-item primary">TypeScript</span><span class="skill-item primary">FastAPI</span>
+          <span class="skill-item">Ruby / Rails</span><span class="skill-item">JavaScript</span><span class="skill-item">Vue / React</span><span class="skill-item">SQL / PostgreSQL</span><span class="skill-item">HTML / CSS</span>
+        </div>
       </div>
 
       <div>
         <p class="skill-group-title es">Datos & Machine Learning</p>
         <p class="skill-group-title en">Data & Machine Learning</p>
         <p class="skill-group-title de">Daten & Machine Learning</p>
-        <div class="skill-row"><span class="skill-name">Pandas / NumPy</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Scikit-Learn</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Keras / TensorFlow</span><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></div>
-        <div class="skill-row"><span class="skill-name">NLP</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Data Visualisation</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Web Scraping / ETL</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-list">
+          <span class="skill-item primary">Web Scraping / ETL</span><span class="skill-item primary">NLP</span><span class="skill-item primary">Pandas / NumPy</span>
+          <span class="skill-item">Scikit-Learn</span><span class="skill-item">D3.js</span><span class="skill-item">Keras / TensorFlow</span>
+        </div>
       </div>
 
       <div>
         <p class="skill-group-title es">Infraestructura & Cloud</p>
         <p class="skill-group-title en">Infrastructure & Cloud</p>
         <p class="skill-group-title de">Infrastruktur & Cloud</p>
-        <div class="skill-row"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Git / GitHub</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
-        <div class="skill-row"><span class="skill-name">GCP</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
-        <div class="skill-row"><span class="skill-name">AWS</span><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Railway / Netlify</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
-        <div class="skill-row"><span class="skill-name">REST APIs</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-list">
+          <span class="skill-item primary">Docker</span><span class="skill-item primary">GCP</span><span class="skill-item primary">REST APIs</span>
+          <span class="skill-item">AWS</span><span class="skill-item">Railway</span><span class="skill-item">Git / GitHub</span>
+        </div>
       </div>
 
       <div>
         <p class="skill-group-title es">AI / LLM</p>
         <p class="skill-group-title en">AI / LLM</p>
-        <div class="skill-row"><span class="skill-name">Claude API / LLMs</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Prompt Engineering</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
-        <div class="skill-row"><span class="skill-name">AI Automation</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Autonomous Agents</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+        <p class="skill-group-title de">AI / LLM</p>
+        <div class="skill-list">
+          <span class="skill-item primary">Claude API</span><span class="skill-item primary">Multi-agent Orchestration</span><span class="skill-item primary">Prompt Engineering</span>
+          <span class="skill-item">Groq</span><span class="skill-item">DeepSeek</span><span class="skill-item">Autonomous Agents</span>
+        </div>
       </div>
 
-      <div class="print-languages">
+      <div>
         <p class="skill-group-title es">Idiomas</p>
         <p class="skill-group-title en">Languages</p>
         <p class="skill-group-title de">Sprachen</p>
-        <div class="skill-row"><span class="skill-name">Español</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
-        <div class="skill-row"><span class="skill-name">English</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Deutsch</span><div class="skill-bar"><div class="skill-fill" data-w="55"></div></div></div>
-        <div class="skill-row"><span class="skill-name">Français</span><div class="skill-bar"><div class="skill-fill" data-w="25"></div></div></div>
+        <div class="skill-list">
+          <span class="skill-item primary es">Español — nativo</span><span class="skill-item primary en">Spanish — native</span><span class="skill-item primary de">Spanisch — Muttersprache</span>
+          <span class="skill-item es">Inglés — profesional</span><span class="skill-item en">English — professional</span><span class="skill-item de">Englisch — beruflich</span>
+          <span class="skill-item es">Alemán — intermedio</span><span class="skill-item en">German — intermediate</span><span class="skill-item de">Deutsch — Mittelstufe</span>
+          <span class="skill-item es">Francés — básico</span><span class="skill-item en">French — basic</span><span class="skill-item de">Französisch — Grundkenntnisse</span>
+        </div>
       </div>
 
     </div>
@@ -508,5 +621,6 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const io = new IntersectionObserver(en
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+</html>
